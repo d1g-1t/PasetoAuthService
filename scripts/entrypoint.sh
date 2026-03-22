@@ -24,5 +24,5 @@ sys.exit(1)
 echo "Running migrations..."
 alembic upgrade head
 
-echo "Starting PasetoForge..."
+echo "Starting PasetoAuthService..."
 exec "$@"

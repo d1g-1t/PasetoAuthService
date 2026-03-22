@@ -4,7 +4,7 @@
 
 help: ## Show available commands
 	@echo.
-	@echo   PasetoForge — PASETO v4 Auth Service
+	@echo   PasetoAuthService — PASETO v4 Auth Service
 	@echo.
 	@echo   make setup    Build and start everything
 	@echo   make down     Stop all services
@@ -19,7 +19,7 @@ setup: ## Build and start everything (plug-and-play)
 	@if not exist .env copy .env.example .env >nul
 	docker compose up --build -d
 	@echo.
-	@echo   PasetoForge is running
+	@echo   PasetoAuthService is running
 	@echo   API:  http://localhost:8420
 	@echo   Docs: http://localhost:8420/docs
 	@echo.

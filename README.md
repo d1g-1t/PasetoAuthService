@@ -1,4 +1,4 @@
-# PasetoForge
+# PasetoAuthService
 
 PASETO v4 auth service on FastAPI. Stateless access tokens (Ed25519), encrypted refresh tokens (XChaCha20-Poly1305), token family rotation with reuse detection.
 

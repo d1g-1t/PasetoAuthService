@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse
 from paseto_forge.api.v1.router import router as v1_router
 from paseto_forge.config import get_settings
 from paseto_forge.database import SessionFactory, close_db, init_db
-from paseto_forge.exceptions import PasetoForgeError
+from paseto_forge.exceptions import PasetoAuthServiceError
 from paseto_forge.middleware import RequestIdMiddleware
 from paseto_forge.redis_client import close_redis, init_redis
 
@@ -97,9 +97,9 @@ def create_app() -> FastAPI:
             allow_headers=["*"],
         )
 
-    @app.exception_handler(PasetoForgeError)
-    async def paseto_forge_exception_handler(
-        request: Request, exc: PasetoForgeError
+    @app.exception_handler(PasetoAuthServiceError)
+    async def paseto_auth_service_exception_handler(
+        request: Request, exc: PasetoAuthServiceError
     ) -> JSONResponse:
         return JSONResponse(
             status_code=exc.status_code,

@@ -12,7 +12,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    APP_NAME: str = "PasetoForge"
+    APP_NAME: str = "PasetoAuthService"
     APP_VERSION: str = "1.0.0"
     DEBUG: bool = False
 

@@ -1,4 +1,4 @@
-class PasetoForgeError(Exception):
+class PasetoAuthServiceError(Exception):
     status_code: int = 500
     error_code: str = "INTERNAL_ERROR"
     detail: str = "Internal server error"
@@ -9,7 +9,7 @@ class PasetoForgeError(Exception):
         super().__init__(self.detail)
 
 
-class AuthenticationError(PasetoForgeError):
+class AuthenticationError(PasetoAuthServiceError):
     status_code = 401
     error_code = "AUTHENTICATION_FAILED"
     detail = "Authentication failed"
@@ -35,19 +35,19 @@ class RefreshTokenReuseError(AuthenticationError):
     detail = "Refresh token reuse detected — token family revoked"
 
 
-class PermissionDeniedError(PasetoForgeError):
+class PermissionDeniedError(PasetoAuthServiceError):
     status_code = 403
     error_code = "PERMISSION_DENIED"
     detail = "Insufficient permissions"
 
 
-class UserNotFoundError(PasetoForgeError):
+class UserNotFoundError(PasetoAuthServiceError):
     status_code = 404
     error_code = "USER_NOT_FOUND"
     detail = "User not found"
 
 
-class UserAlreadyExistsError(PasetoForgeError):
+class UserAlreadyExistsError(PasetoAuthServiceError):
     status_code = 409
     error_code = "USER_ALREADY_EXISTS"
     detail = "User already exists"
